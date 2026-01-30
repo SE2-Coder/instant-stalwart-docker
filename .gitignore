@@ -1,0 +1,13 @@
+# Sensitive files
+AccessStalwart.sql
+/Users/se2/Documents/SSH/VPN/VPNKey.pem
+
+# Docker data
+stalwart-data/
+stalwart-config/
+
+# OS files
+.DS_Store
+
+# Agent rules
+.agent/

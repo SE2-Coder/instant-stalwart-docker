@@ -1,0 +1,36 @@
+services:
+  stalwart:
+    image: stalwartlabs/stalwart:latest
+    container_name: stalwart
+    restart: unless-stopped
+    environment:
+      - STALWART_ADMIN_USER=admin
+      - STALWART_ADMIN_PASSWORD=${STALWART_ADMIN_PASSWORD}
+    ports:
+      # SMTP
+      - "25:25"
+      # SMTPS
+      - "465:465"
+      # Submission
+      - "587:587"
+      # IMAP
+      - "143:143"
+      # IMAPS
+      - "993:993"
+      # POP3
+      - "110:110"
+      # POP3S
+      - "995:995"
+      # ManageSieve
+      - "4190:4190"
+      # HTTP (Admin UI & JMAP)
+      - "8080:8080"
+    volumes:
+      - ./stalwart-data:/opt/stalwart-mail/data
+      - ./stalwart-config:/opt/stalwart-mail/etc
+    networks:
+      - stalwart-network
+
+networks:
+  stalwart-network:
+    driver: bridge
