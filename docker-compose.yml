@@ -24,7 +24,7 @@ services:
       # ManageSieve
       - "4190:4190"
       # HTTP (Admin UI & JMAP)
-      - "8080:8080"
+      - "8081:8080"
     volumes:
       - ./stalwart-data:/opt/stalwart-mail/data
       - ./stalwart-config:/opt/stalwart-mail/etc
